@@ -1,6 +1,8 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.std_logic_textio.all;
+use IEEE.numeric_std.all;
+use STD.textio.all;
 
 entity lfsr_tb is
 end entity lfsr_tb;
@@ -23,11 +25,12 @@ signal tb_lfsr_out  :   std_logic_vector(7 downto 0);
 
 signal sim_counter  :   integer     :=  0;
 
+file output_file    :   text;
+
 constant clk_per	:	time := 5 ns;
-constant SIMULATION_RUN_TIME    :   integer :=  50;
+constant SIMULATION_RUN_TIME    :   integer :=  500;
 
 begin
-
     -- DUT instantiation
     DUT : galois_LFSR
     port map (
@@ -81,5 +84,23 @@ begin
         end if;
     end process terminate_sim;
 
-end architecture tb_rtl;
+    file_writer : process
+        variable line_var   :   line;
+    begin
+        file_open(output_file, "lfsr_outputs.txt", write_mode);
         
+        -- Wait for simulation to start
+        wait until rising_edge(tb_clk);
+        
+        -- Write data on each rising edge
+        while sim_counter < SIMULATION_RUN_TIME loop
+            wait until rising_edge(tb_clk);
+            write(line_var, tb_lfsr_out, right, 8);
+            writeline(output_file, line_var);
+        end loop;
+        
+        file_close(output_file);
+        wait; -- Stop the process
+    end process file_writer;
+
+end architecture tb_rtl;
