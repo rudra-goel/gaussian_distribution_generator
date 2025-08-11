@@ -10,29 +10,38 @@ end entity lfsr_tb;
 architecture tb_rtl of lfsr_tb is
 
 component galois_LFSR is 
+generic (
+    WIDTH       :   integer     :=  8
+);
 port (
     clk_p        :   in std_logic;
     rst_p        :   in std_logic;
-    seed_p       :   in std_logic_vector(7 downto 0);
-    lfsr_out_p   :   out std_logic_vector(7 downto 0)
+    seed_p       :   in std_logic_vector(WIDTH-1 downto 0);
+    lfsr_out_p   :   out std_logic_vector(WIDTH-1 downto 0)
 );
 end component galois_LFSR;
 
+constant clk_per	:	time := 5 ns;
+constant SIMULATION_RUN_TIME    :   integer :=  500;
+
+constant lfsr_width :   integer     :=  32;
+
 signal tb_clk		:	std_logic	:= '0';
 signal tb_rst		:	std_logic	:= '0';
-signal tb_seed      :   std_logic_vector(7 downto 0);
-signal tb_lfsr_out  :   std_logic_vector(7 downto 0);
+signal tb_seed      :   std_logic_vector(lfsr_width-1 downto 0);
+signal tb_lfsr_out  :   std_logic_vector(lfsr_width-1 downto 0);
 
 signal sim_counter  :   integer     :=  0;
 
 file output_file    :   text;
 
-constant clk_per	:	time := 5 ns;
-constant SIMULATION_RUN_TIME    :   integer :=  500;
 
 begin
     -- DUT instantiation
     DUT : galois_LFSR
+    generic map (
+        WIDTH       =>  lfsr_width
+    )
     port map (
         clk_p       => tb_clk,
         rst_p       => tb_rst,
@@ -50,7 +59,7 @@ begin
         
         wait for clk_per * 5;
         tb_rst <= '1';
-        tb_seed <=  "00011001";
+        tb_seed <=  x"DEADBEEF";
         
         wait for clk_per * 5;
 
@@ -95,7 +104,7 @@ begin
         -- Write data on each rising edge
         while sim_counter < SIMULATION_RUN_TIME loop
             wait until rising_edge(tb_clk);
-            write(line_var, tb_lfsr_out, right, 8);
+            write(line_var, tb_lfsr_out, right, lfsr_width);
             writeline(output_file, line_var);
         end loop;
         

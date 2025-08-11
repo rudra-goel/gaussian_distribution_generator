@@ -1,7 +1,7 @@
 v 4
-file "/Users/rgoel/Projects/gaussianDistributionGenerator/" "LFSR.vhd" "a77780cefe935d4723e3a6086f511da38f735932" "20250811020007.061":
-  entity galois_lfsr at 1( 0) + 0 on 33;
-  architecture rtl of galois_lfsr at 13( 279) + 0 on 34;
-file "/Users/rgoel/Projects/gaussianDistributionGenerator/" "lfsr_tb.vhd" "c48c5b3949450a1a40cb34e1cb5c057d1260119e" "20250811020006.931":
-  entity lfsr_tb at 1( 0) + 0 on 31;
-  architecture tb_rtl of lfsr_tb at 10( 160) + 0 on 32;
+file "/Users/rgoel/Projects/gaussianDistributionGenerator/" "LFSR.vhd" "f159a6571390a347bb0acf921db982a9949e88af" "20250811060941.903":
+  entity galois_lfsr at 1( 0) + 0 on 45;
+  architecture rtl of galois_lfsr at 16( 329) + 0 on 46;
+file "/Users/rgoel/Projects/gaussianDistributionGenerator/" "lfsr_tb.vhd" "cdbacefd664b9179220eb46e2a085c4f3ae3843e" "20250811060941.777":
+  entity lfsr_tb at 1( 0) + 0 on 43;
+  architecture tb_rtl of lfsr_tb at 10( 160) + 0 on 44;

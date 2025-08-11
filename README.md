@@ -25,3 +25,6 @@ The current implementation uses:
 
 ## Example Waveform
 ![WaveExample1](WaveExample1.png)
+
+## Example Uniform Distribution
+<img src="LFSR Output Plotted.png" alt="LFSR Output Plotted" width=500/>
