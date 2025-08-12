@@ -27,4 +27,4 @@ The current implementation uses:
 ![WaveExample1](WaveExample1.png)
 
 ## Example Uniform Distribution
-<img src="LFSR Output Plotted.png" alt="LFSR Output Plotted" width=500/>
+<img src="LFSR Output Plotted.png" alt="LFSR Output Plotted" width=1000/>
