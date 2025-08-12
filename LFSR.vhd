@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity galois_LFSR is
+entity fibonacci_LFSR is
 generic (
     WIDTH : integer := 8
 );
@@ -11,9 +11,9 @@ port (
     seed_p       :   in std_logic_vector(WIDTH-1 downto 0);
     lfsr_out_p   :   out std_logic_vector(WIDTH-1 downto 0)
 );
-end entity galois_LFSR;
+end entity fibonacci_LFSR;
 
-architecture rtl of galois_LFSR is
+architecture rtl of fibonacci_LFSR is
 
 signal lfsr_s       :   std_logic_vector(WIDTH-1 downto 0);
 signal lfsr_reg_s   :   std_logic_vector(WIDTH-1 downto 0)    :=  (others => '0');

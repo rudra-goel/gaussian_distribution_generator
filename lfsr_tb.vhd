@@ -9,7 +9,7 @@ end entity lfsr_tb;
 
 architecture tb_rtl of lfsr_tb is
 
-component galois_LFSR is 
+component fibonacci_LFSR is 
 generic (
     WIDTH       :   integer     :=  8
 );
@@ -19,10 +19,10 @@ port (
     seed_p       :   in std_logic_vector(WIDTH-1 downto 0);
     lfsr_out_p   :   out std_logic_vector(WIDTH-1 downto 0)
 );
-end component galois_LFSR;
+end component fibonacci_LFSR;
 
 constant clk_per	:	time := 5 ns;
-constant SIMULATION_RUN_TIME    :   integer :=  500;
+constant SIMULATION_RUN_TIME    :   integer :=  5000;
 
 constant lfsr_width :   integer     :=  32;
 
@@ -38,7 +38,7 @@ file output_file    :   text;
 
 begin
     -- DUT instantiation
-    DUT : galois_LFSR
+    DUT : fibonacci_LFSR
     generic map (
         WIDTH       =>  lfsr_width
     )

@@ -1,12 +1,7 @@
 clc; clear; close all;
 
-vals = readlines("lfsr_outputs.txt")
-vals_base10 = zeros(1, length(vals));
-
-
-for i = 1:length(vals)
-    vals_base10(i) = bin2dec(vals(i));
-end
+vals = readlines("lfsr_outputs.txt");
+vals_base10 = bin2dec(vals);
 
 nomalized = vals_base10 / max(vals_base10);
 
