@@ -40,39 +40,22 @@ def dec_to_twos_comp_binary(decimal_val):
 
 def dec_to_twos_comp_binary_ln(decimal_val):
     binary_string = ""
-    if decimal_val == 1:
-        binary_string = "0" * 31 + "1"
-        return binary_string
 
     abs_val = abs(decimal_val)
-
-    if abs_val == 0:
-        binary_string = "0" * 32
-        return binary_string
-
-    #grab the integer part
-    int_part = int(abs_val)
-    while int_part != 0:
-        if int_part % 2 == 0:
-            binary_string = binary_string + "0"
-        else:
-            binary_string = binary_string + "1"
-        int_part = int_part // 2
     
-    remaining_bits = 32 - len(binary_string)
-    scale = 2 ** remaining_bits
-    frac_part = abs_val - int(abs_val)
-    frac_part = int(frac_part * scale)
-    
-    while frac_part != 0:
-        if frac_part % 2 == 0:
-            binary_string = binary_string + "0"
+    abs_val *= 2**32
+
+    abs_val = int(abs_val)
+
+    while abs_val != 0:
+        if abs_val % 2 == 0:
+            binary_string =  "0" + binary_string
         else:
-            binary_string = binary_string + "1"
-        frac_part = frac_part // 2
+            binary_string = "1" + binary_string
+        abs_val = abs_val // 2
 
     while len(binary_string) < 32:
-        binary_string +="0"
+        binary_string = "0" + binary_string
 
     return binary_string
 
@@ -103,20 +86,26 @@ def generate_compact_trig_lut(func_name, func, filename, num_entries=2**16):
     print(f"Compact {func_name} lookup table generated successfully!")
     return True
 
-def generate_ln_lut(func_name, func, filename, num_entries=2**16):
+def generate_alpha_lut(func_name, func, filename, num_entries=2**16):
     print(f"\nGenerating compact {func_name} lookup table...")
-    print(f"Entries: {num_entries:,}")
-    
+    print(f"Alpha LUT Entries: {num_entries:,}")
+
     try:
-        with open(filename, 'w') as mif_file:            
+        with open(filename, 'w') as mif_file:    
+
+            step = 1 / num_entries        
             
             for i in range(1, num_entries+1):
 
-                value = func(i)
-                binary_value = dec_to_twos_comp_binary_ln(value)
+                value = math.sqrt(-2 * np.log(i * step))
 
-                print("Angle is ", i, "\tValue is", value, "\tBinary is", binary_value)
+                scaled_val = value / 10
+
+                binary_value = dec_to_twos_comp_binary_ln(scaled_val)
+
                 mif_file.write(f"{binary_value}\n")
+
+                # print(f"i is {i}, \tValue is {value}, \tScaled Value is {scaled_val}, \tBinary is {binary_value}")
 
                 if i % 10000 == 0:
                     progress = (i / num_entries) * 100
@@ -136,7 +125,9 @@ def main():
 
     # generate_compact_trig_lut("COSINE", np.cos, "cosine_lut_16bit.mif", num_entries=2**16)
     # generate_compact_trig_lut("SINE", np.sin, "sine_lut_16bit.mif", num_entries=2**16)
-    generate_ln_lut("NATURAL LOG", np.log, "ln_lut_16bit.mif", num_entries=2**16)
+    generate_alpha_lut("NATURAL LOG", np.log, "ln_lut_16bit.mif", num_entries=2**16)
+
+    # print(dec_to_twos_comp_binary_ln(-23))
 
     print("\nGeneration complete!")
 
