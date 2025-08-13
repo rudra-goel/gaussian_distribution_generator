@@ -6,7 +6,7 @@ A VHDL implementation of a Gaussian distribution generator
 
 This project implements a Fibonacci LFSR (Linear Feedback Shift Register) in VHDL, which generates pseudo-random binary sequences. LFSRs can generate numbers across a uniform distribution; this set has equal probability across the full range. More practical distributions are the Gaussian or Normal Distribution which follow the Central Limit Theorem. Numbers closer to the mean are more likely to occur; rhis is also known as a bell curve. 
 
-By way of the Box-Muller Theorem, we can take two samples from the uniform distribution and convert them into the normal distribution.
+By way of the Box-Muller Transform, we can take two samples from the uniform distribution and convert them into the normal distribution.
 
 ## Usage
 
@@ -19,8 +19,8 @@ I am using GHDL / Icarus-verilog for analysis and elaboration step to create a .
 ## LFSR Configuration
 
 The current implementation uses:
-- **Width**: 8 bits
-- **Taps**: Positions 4 and 2 (for feedback polynomial)
+- **Width**: 16 bits
+- **Taps**: Positions 32, 22, 2, 1 and constant 1 (for feedback polynomial)
 - **Type**: Fibonacci configuration
 
 ## Example Waveform
