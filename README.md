@@ -28,3 +28,7 @@ The current implementation uses:
 
 ## Example Uniform Distribution
 <img src="LFSR Output Plotted.png" alt="LFSR Output Plotted" width=1000/>
+
+## Block Diagram
+<img src="Diagram.png" alt="Block Diagram" width=1000/>
+
