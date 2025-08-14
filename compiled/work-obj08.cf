@@ -1,13 +1,19 @@
 v 4
-file "/Users/rgoel/Projects/gaussianDistributionGenerator/" "rom.vhd" "0bda86fccf95383b2e9df8b073f21e64b08a762e" "20250812052544.614":
-  entity rom at 1( 0) + 0 on 115;
-  architecture rtl of rom at 22( 457) + 0 on 116;
-file "/Users/rgoel/Projects/gaussianDistributionGenerator/" "lfsr_tb.vhd" "a02f77e08ae5cb5a362a53b17993d78f1a515928" "20250811222736.325":
-  entity lfsr_tb at 1( 0) + 0 on 47;
-  architecture tb_rtl of lfsr_tb at 10( 160) + 0 on 48;
-file "/Users/rgoel/Projects/gaussianDistributionGenerator/" "LFSR.vhd" "73b95cf31bc27127a9e8ed814b8debbdf579c69a" "20250811222736.473":
-  entity fibonacci_lfsr at 1( 0) + 0 on 49;
-  architecture rtl of fibonacci_lfsr at 16( 335) + 0 on 50;
-file "/Users/rgoel/Projects/gaussianDistributionGenerator/" "rom_tb.vhd" "611f1db84457750a46a7f0979374309319943a66" "20250812052346.487":
-  entity rom_tb at 1( 0) + 0 on 113;
-  architecture rtl of rom_tb at 12( 142) + 0 on 114;
+file "/Users/rgoel/Projects/gaussianDistributionGenerator/" "rom.vhd" "0bda86fccf95383b2e9df8b073f21e64b08a762e" "20250814050542.781":
+  entity rom at 1( 0) + 0 on 145;
+  architecture rtl of rom at 22( 457) + 0 on 146;
+file "/Users/rgoel/Projects/gaussianDistributionGenerator/" "lfsr_tb.vhd" "a02f77e08ae5cb5a362a53b17993d78f1a515928" "20250814050536.290":
+  entity lfsr_tb at 1( 0) + 0 on 143;
+  architecture tb_rtl of lfsr_tb at 10( 160) + 0 on 144;
+file "/Users/rgoel/Projects/gaussianDistributionGenerator/" "LFSR.vhd" "73b95cf31bc27127a9e8ed814b8debbdf579c69a" "20250814050536.156":
+  entity fibonacci_lfsr at 1( 0) + 0 on 141;
+  architecture rtl of fibonacci_lfsr at 16( 335) + 0 on 142;
+file "/Users/rgoel/Projects/gaussianDistributionGenerator/" "rom_tb.vhd" "611f1db84457750a46a7f0979374309319943a66" "20250814050542.905":
+  entity rom_tb at 1( 0) + 0 on 147;
+  architecture rtl of rom_tb at 12( 142) + 0 on 148;
+file "/Users/rgoel/Projects/gaussianDistributionGenerator/" "mult32.vhd" "26e3044f941c4887c8dc312df2737d0d6384cdb5" "20250814052411.111":
+  entity s32_mult at 1( 0) + 0 on 221;
+  architecture rtl of s32_mult at 18( 337) + 0 on 222;
+file "/Users/rgoel/Projects/gaussianDistributionGenerator/" "mult32_tb.vhd" "be9226390908c0820171e4a42b473f44847aed80" "20250814052411.232":
+  entity mult32_tb at 1( 0) + 0 on 223;
+  architecture rtl of mult32_tb at 11( 147) + 0 on 224;
