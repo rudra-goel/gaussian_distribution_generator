@@ -75,8 +75,7 @@ begin
         report "" severity note;
         report "" severity note;
         report "" severity note;
-        REPORT "****************** ENDING Testbench for Random Number Generator ********************************" severity note;
-
+        REPORT "****************** ENDING Testbench for Random Number Generator ********************************" severity failure;
     end process stim_proc;
 
     print_stats : process (tb_clk) begin

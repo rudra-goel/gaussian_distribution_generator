@@ -132,7 +132,7 @@ begin
 
     cos_lut : rom
     generic map (
-        INIT_FILE => "cos_lut_16bit.mif"
+        INIT_FILE => "cosine_lut_16bit.mif"
     )
     port map (
         clk     => clk,
@@ -142,7 +142,7 @@ begin
 
     sin_lut : rom
     generic map (
-        INIT_FILE => "sin_lut_16bit.mif"
+        INIT_FILE => "sine_lut_16bit.mif"
     )
     port map (
         clk     => clk,

@@ -27,7 +27,11 @@ seed_proc : process (lfsr_reg_s, rst_p) begin
         gen_bit_s <= '0';
     else
         lfsr_s <= lfsr_reg_s;
-        gen_bit_s   <= lfsr_reg_s(31) xor (lfsr_reg_s(21) xor (lfsr_reg_s(2) xor (lfsr_reg_s(1) xor lfsr_reg_s(0))));
+        if (WIDTH = 8) then
+            gen_bit_s   <= lfsr_reg_s(7) xor (lfsr_reg_s(5) xor (lfsr_reg_s(2) xor (lfsr_reg_s(1) xor lfsr_reg_s(0))));
+        elsif (WIDTH = 16) then
+            gen_bit_s   <= lfsr_reg_s(15) xor (lfsr_reg_s(13) xor (lfsr_reg_s(12) xor (lfsr_reg_s(10) xor lfsr_reg_s(0))));
+        end if;
     end if;
 end process seed_proc;
 

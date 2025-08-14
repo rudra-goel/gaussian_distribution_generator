@@ -11,7 +11,7 @@ lfsr: $(WORKDIR)
 	@$(GHDL)	-a	$(FLAGS) --workdir=$(WORKDIR) LFSR.vhd
 	@$(GHDL)	-a	$(FLAGS) --workdir=$(WORKDIR) lfsr_tb.vhd
 	@$(GHDL)	-e	$(FLAGS) --workdir=$(WORKDIR) lfsr_tb
-	@$(GHDL)	-r	$(FLAGS) --workdir=$(WORKDIR) lfsr_tb --wave=$(WORKDIR)/lfsr_wave.ghw
+	@$(GHDL)	-r	$(FLAGS) --workdir=$(WORKDIR) lfsr_tb --max-stack-alloc=0 --wave=$(WORKDIR)/lfsr_wave.ghw
 
 # ROM testbench target
 rom: $(WORKDIR)
@@ -19,7 +19,7 @@ rom: $(WORKDIR)
 	@$(GHDL)	-a	$(FLAGS) --workdir=$(WORKDIR) rom.vhd
 	@$(GHDL)	-a	$(FLAGS) --workdir=$(WORKDIR) rom_tb.vhd
 	@$(GHDL)	-e	$(FLAGS) --workdir=$(WORKDIR) rom_tb
-	@$(GHDL)	-r	$(FLAGS) --workdir=$(WORKDIR) rom_tb --wave=$(WORKDIR)/rom_wave.ghw
+	@$(GHDL)	-r	$(FLAGS) --workdir=$(WORKDIR) rom_tb --max-stack-alloc=0 --wave=$(WORKDIR)/rom_wave.ghw
 
 # 32-bit multiplier testbench target
 mult32: $(WORKDIR)
@@ -27,7 +27,7 @@ mult32: $(WORKDIR)
 	@$(GHDL)	-a	$(FLAGS) --workdir=$(WORKDIR) mult32.vhd
 	@$(GHDL)	-a	$(FLAGS) --workdir=$(WORKDIR) mult32_tb.vhd
 	@$(GHDL)	-e	$(FLAGS) --workdir=$(WORKDIR) mult32_tb
-	@$(GHDL)	-r	$(FLAGS) --workdir=$(WORKDIR) mult32_tb --wave=$(WORKDIR)/mult32_wave.ghw
+	@$(GHDL)	-r	$(FLAGS) --workdir=$(WORKDIR) mult32_tb --max-stack-alloc=0 --wave=$(WORKDIR)/mult32_wave.ghw
 
 # Random number generator testbench target
 rand_gen: $(WORKDIR)
@@ -38,7 +38,7 @@ rand_gen: $(WORKDIR)
 	@$(GHDL)	-a	$(FLAGS) --workdir=$(WORKDIR) rand_gen.vhd
 	@$(GHDL)	-a	$(FLAGS) --workdir=$(WORKDIR) rand_gen_tb.vhd
 	@$(GHDL)	-e	$(FLAGS) --workdir=$(WORKDIR) rand_gen_tb
-	@$(GHDL)	-r	$(FLAGS) --workdir=$(WORKDIR) rand_gen_tb --wave=$(WORKDIR)/rand_gen_wave.ghw
+	@$(GHDL)	-r	$(FLAGS) --workdir=$(WORKDIR) rand_gen_tb --max-stack-alloc=0 --wave=$(WORKDIR)/rand_gen_wave.ghw
 
 # Target to run all testbenches
 test-all: lfsr rom mult32 rand_gen
