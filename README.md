@@ -32,3 +32,5 @@ The current implementation uses:
 ## Block Diagram
 <img src="Diagram.png" alt="Block Diagram" width=1000/>
 
+## Normal Distribution V1 
+<img src="Normal Distribution V1.png" alt="Norm Distr." width=1000/>
