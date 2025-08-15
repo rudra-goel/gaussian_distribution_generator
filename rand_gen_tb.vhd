@@ -22,7 +22,7 @@ component random_number_generator is
 end component random_number_generator;
 
 constant clk_per	:	time := 5 ns;
-constant SIMULATION_RUN_TIME    :   integer :=  5000;
+constant SIMULATION_RUN_TIME    :   integer :=  500000;
 
 constant lfsr_width :   integer     :=  16;
 
@@ -70,7 +70,7 @@ begin
         wait for clk_per * 4;
         
         tb_rst <= '0';
-        wait for clk_per * 50;
+        wait for clk_per * SIMULATION_RUN_TIME;
 
         report "" severity note;
         report "" severity note;

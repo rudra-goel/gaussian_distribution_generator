@@ -1,0 +1,50 @@
+
+function read_random_outputs()
+    clc; close all;
+    input_filename = 'random_number_outputs.txt';
+    
+    
+    % Open the input file for reading
+    fid = fopen(input_filename, 'r');
+    
+    decimal_values = [];
+    line_count = 0;
+   
+    
+    % Close the input file
+    fclose(fid);
+    
+    fprintf('Finished reading file. Total lines processed: %d\n', line_count);
+    fprintf('Valid decimal values extracted: %d\n', length(decimal_values));
+    
+    % Display statistics
+    if ~isempty(decimal_values)
+        fprintf('\n--- Statistics ---\n');
+        fprintf('Number of values: %d\n', length(decimal_values));
+        fprintf('Minimum value: %.0f\n', min(decimal_values));
+        fprintf('Maximum value: %.0f\n', max(decimal_values));
+        fprintf('Mean value: %.2f\n', mean(decimal_values));
+        fprintf('Standard deviation: %.2f\n', std(decimal_values));
+        
+        % Create a simple histogram
+        figure;
+        subplot(2, 1, 1);
+        histogram(decimal_values, 50);
+        title('Distribution of Random Number Values');
+        xlabel('Decimal Value');
+        ylabel('Frequency');
+        grid on;
+        
+
+        % Create time series plot
+        subplot(2, 1, 2);
+        plot(decimal_values);
+        title('Random Number Sequence');
+        xlabel('Sample Number');
+        ylabel('Decimal Value');
+        grid on;
+        
+    end
+
+    
+end

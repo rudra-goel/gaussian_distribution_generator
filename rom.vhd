@@ -22,6 +22,11 @@ end entity rom;
 architecture rtl of rom is 
     type romtype is array(0 to (2**ADDR_WIDTH)-1) of std_logic_vector(DATA_WIDTH-1 downto 0);
 
+    constant ADDR_UNDEF : std_logic_vector(ADDR_WIDTH-1 downto 0) := (others => 'U');
+
+    signal data_out_s : std_logic_vector(DATA_WIDTH-1 downto 0);
+    signal data_out_reg_s : std_logic_vector(DATA_WIDTH-1 downto 0) := (others => '0');
+
     impure function initRomFromFile return romType is
         file data_file : text open read_mode is INIT_FILE;
         variable data_fileLine : line;
@@ -44,10 +49,14 @@ architecture rtl of rom is
 
     begin
 
+        data_out_s <=  rom_s(to_integer(unsigned(addr)));
+
         process (clk) begin
             if rising_edge(clk) then
-                data_out <=  rom_s(to_integer(unsigned(addr)));
+                data_out_reg_s <= data_out_s;
             end if;
         end process;
+
+        data_out <= data_out_reg_s;
 
 end architecture rtl;
