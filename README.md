@@ -8,10 +8,7 @@ This project implements a Fibonacci LFSR (Linear Feedback Shift Register) in VHD
 
 By way of the Box-Muller Transform, we can take two samples from the uniform distribution and convert them into the normal distribution.
 
-## Applications of Random Number Generators
- - Monte Carlo Simulations for financial market forcasting
- - Stochastic algorithms in training Deep Nerual Networks
- - Security
+
 
 ## Usage
 
@@ -39,3 +36,8 @@ The current implementation uses:
 
 ## Normal Distribution V1 
 <img src="Normal Distribution V1.png" alt="Norm Distr." width=1000/>
+
+## Applications of Random Number Generators
+ - Monte Carlo Simulations for financial market forcasting
+ - Stochastic algorithms in training Deep Nerual Networks
+ - Security
