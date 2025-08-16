@@ -8,6 +8,11 @@ This project implements a Fibonacci LFSR (Linear Feedback Shift Register) in VHD
 
 By way of the Box-Muller Transform, we can take two samples from the uniform distribution and convert them into the normal distribution.
 
+## Applications of Random Number Generators
+ - Monte Carlo Simulations for financial market forcasting
+ - Stochastic algorithms in training Deep Nerual Networks
+ - Security
+
 ## Usage
 
 I am using GHDL / Icarus-verilog for analysis and elaboration step to create a .ghw / .vcd. These waveforms can be viewed in the VS Code extension VaporView. 
